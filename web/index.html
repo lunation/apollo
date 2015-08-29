@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<title>APOLLO</title>
+		<style>
+			#game-container {
+				position: absolute;
+				top:0;
+				left:0;
+				right: 0;
+				bottom: 0;
+				background-color: #111;
+				padding: 40px;
+			}
+			#game-console {
+				color: white;
+				height: 100%;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="game-container">
+			<pre id="game-console"></pre>
+		</div>
+		<script src="lua.vm.js"></script>
+		<script>
+			function fetch_file(name,callback,error) {
+				var req = new XMLHttpRequest();
+
+				req.onreadystatechange = function() {
+					if (req.readyState==4) {
+						if (req.status!=200) {
+							if (!error) throw "Could not fetch file: "+name;
+							error();
+						} else {
+							console.log(":)",callback);
+							callback(req.response);
+						}
+					}
+				}
+				req.open("GET",name);
+				req.send();
+			}
+
+			var console_element = document.getElementById("game-console");
+			function console_print() {
+				for(var i = 0; i < arguments.length; i++) {
+					if (i>0) console_element.textContent+="\t";
+					console_element.textContent += arguments[i];
+				}
+				console_element.textContent += "\n";
+			}
+
+			var file_table;
+
+			fetch_file("index.json",function(data) {
+				file_table= JSON.parse(data);
+
+				fetch_file("init.lua",L.execute.bind(L));
+			});
+		</script>
+		<pre>
+		new
+		lua.vm.js:1 pairs
+		lua.vm.js:1 global
+		lua.vm.js:1 ipairs
+		lua.vm.js:1 null
+		</pre>
+	</body>
+</html>
