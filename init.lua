@@ -3,23 +3,23 @@ function print(...)
 end
 
 print[[
-/==============================================================\
-[      ###    ########   #######  ##       ##        #######   ]
-[     ## ##   ##     ## ##     ## ##       ##       ##     ##  ]
-[    ##   ##  ##     ## ##     ## ##       ##       ##     ##  ]
-[   ##     ## ########  ##     ## ##       ##       ##     ##  ]
-[   ######### ##        ##     ## ##       ##       ##     ##  ]
-[   ##     ## ##        ##     ## ##       ##       ##     ##  ]
-[   ##     ## ##         #######  ######## ########  #######   ]
-[                                                              ]
-[ Apollo is an HTML5 Game Engine written in Lua of all things. ]
-[                                                              ]
-[        Version: 0.0.0                                        ]
-[        Author: Adam Coggeshall                               ]
-[        Website: https://github.com/lunation/apollo           ]
-[                                                              ]
-[ “Doubt has killed more scripts than errors will.” - John Lua ]
-\==============================================================/
+/=====================================================================\
+[         ###    ########   #######  ##       ##        #######       ]
+[        ## ##   ##     ## ##     ## ##       ##       ##     ##      ]
+[       ##   ##  ##     ## ##     ## ##       ##       ##     ##      ]
+[      ##     ## ########  ##     ## ##       ##       ##     ##      ]
+[      ######### ##        ##     ## ##       ##       ##     ##      ]
+[      ##     ## ##        ##     ## ##       ##       ##     ##      ]
+[      ##     ## ##         #######  ######## ########  #######       ]
+[                                                                     ]
+[    Apollo is an HTML5 Game Engine written in Lua for some reason.   ]
+[                                                                     ]
+[        Version: 0.0.0                                               ]
+[        Author: Adam Coggeshall                                      ]
+[        Website: https://github.com/lunation/apollo                  ]
+[                                                                     ]
+[  “Doubt has killed more scripts than errors ever will.” - John Lua  ]
+\=====================================================================/
 ]]
 
 -- Rename loadstring.
