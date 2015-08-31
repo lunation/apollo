@@ -13,19 +13,16 @@
 			}
 			#game-canvas {
 				position: absolute;
-				z-index: -1;
 			}
 			#game-console {
 				overflow: auto;
 				position: absolute;
-				color: white;
+				color: #FFF;
 				top: 50px;
 				bottom: 50px;
 				left: 50px;
 				right: 50px;
-				//width: 90%;
-				//height: 90%;
-				//margin: 0;
+				margin: 0;
 			}
 		</style>
 	</head>
@@ -72,7 +69,14 @@
 
 			var canvas_element = document.getElementById("game-canvas");
 
-			window.addEventListener("resize", function() { console.log("@",container_element.clientWidth,container_element.clientHeight) });
+			function resize_canvas() {
+				canvas_element.width=container_element.clientWidth;
+				canvas_element.height=container_element.clientHeight;
+			}
+
+			resize_canvas();
+
+			window.addEventListener("resize",resize_canvas);
 
 
 			var file_table;
