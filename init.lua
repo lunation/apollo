@@ -84,6 +84,20 @@ function isfunction(v)
 	return type(v)=="function"
 end
 
+-- Fix callbacks passed to js.
+
+function js.nothis(f)
+	return f and function(_,...) f(...) end
+end
+
+-- HTTP lib here. We need it for the file library.
+
+http = {}
+
+function http.get(url,callback_success,callback_error)
+	window:http_req("GET",url,js.nothis(callback_success),js.nothis(callback_error))
+end
+
 -- File lib here. We need it to bootstrap everything else.
 
 file = {}
@@ -112,7 +126,7 @@ function file.list(path)
 	return files,dirs
 end
 
-file.read = function(name,callback) window:fetch_file(name,function(_,data) callback(data) end) end --god this is terrible
+file.read = http.get
 
 -- Our LUA loading system. Goddamn I hate it so much.
 
