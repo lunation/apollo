@@ -58,10 +58,11 @@
 				var should_scroll = console_element.scrollTop + console_element.clientHeight == console_element.scrollHeight;
 
 				for(var i = 0; i < arguments.length; i++) {
-					if (i>0) console_element.textContent+="\t";
-					console_element.textContent += arguments[i];
+					if (i>0) console_element.appendChild(document.createTextNode("\t"));
+
+					console_element.appendChild(document.createTextNode(arguments[i]));
 				}
-				console_element.textContent += "\n";
+				console_element.appendChild(document.createTextNode("\n"));
 
 				if (should_scroll)
 					console_element.scrollTop = console_element.scrollHeight - console_element.clientHeight;
