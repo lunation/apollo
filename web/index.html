@@ -31,8 +31,8 @@
 	</head>
 	<body>
 		<div id="game-container">
-			<pre id="game-console"></pre>
 			<canvas id="game-canvas"></canvas>
+			<pre id="game-console"></pre>
 		</div>
 		<script src="lua.vm.js"></script>
 		<script>
@@ -53,6 +53,8 @@
 				req.send();
 			}
 
+			var container_element = document.getElementById("game-container");
+
 			var console_element = document.getElementById("game-console");
 			function console_print() {
 				var should_scroll = console_element.scrollTop + console_element.clientHeight == console_element.scrollHeight;
@@ -67,6 +69,11 @@
 				if (should_scroll)
 					console_element.scrollTop = console_element.scrollHeight - console_element.clientHeight;
 			}
+
+			var canvas_element = document.getElementById("game-canvas");
+
+			window.addEventListener("resize", function() { console.log("@",container_element.clientWidth,container_element.clientHeight) });
+
 
 			var file_table;
 
