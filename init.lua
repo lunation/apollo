@@ -146,6 +146,9 @@ for _,name in pairs(engine_libs) do
 			--Load the game or some shit
 			print("\nEngine loaded. Time to load the game or something.")
 
+			print("\nTODO:")
+			print("1) Menu system. Setup in game code. Close console when ready.")
+			print("2) More elegant engine loader. Seperate into tiers. init.lua->tier0.lua etc.")
 		end
 	end)
 end
