@@ -86,7 +86,7 @@ end
 
 -- Fix callbacks passed to js (discard the first argument)
 
-function js.callback(f)
+function js.skipthis(f)
 	return f and function(_,...) f(...) end
 end
 
@@ -95,7 +95,7 @@ end
 http = {}
 
 function http.get(url,callback_success,callback_error)
-	window:http_req("GET",url,js.callback(callback_success),js.callback(callback_error))
+	window:http_req("GET",url,js.skipthis(callback_success),js.skipthis(callback_error))
 end
 
 -- File lib here. We need it to bootstrap everything else.
@@ -142,7 +142,7 @@ for _,name in pairs(engine_libs) do
 		print("> "..name)
 		libs_completed=libs_completed+1
 		if libs_completed==#engine_libs then
-			
+
 			--Load the game or some shit
 			print("\nEngine loaded. Time to load the game or something.")
 
